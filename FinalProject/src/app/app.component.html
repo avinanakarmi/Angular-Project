@@ -9,8 +9,14 @@
           <app-nav-bar></app-nav-bar>
         </div>
         <div class="col-md-2 side-bar">
-          <app-add-event></app-add-event>
-          <app-side-bar></app-side-bar>
+          <div *ngIf = "sidebarToggle === true">
+              <i class="fa fa-times-circle fa-3x" style="padding-left: 200px;" (click)="sidebarToggle=false"></i>
+              <app-add-event></app-add-event>
+          </div>
+          <div *ngIf = "sidebarToggle === false">
+              <i class="fa fa-plus-circle fa-3x" style="padding-left: 200px;" (click)="sidebarToggle=true"></i>
+              <app-side-bar></app-side-bar>
+          </div>
         </div>
         <div class="col-md-9 content">
           <app-event-list></app-event-list>
