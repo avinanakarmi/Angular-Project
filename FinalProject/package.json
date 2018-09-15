@@ -20,6 +20,8 @@
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
+    "angular-filter": "^0.5.17",
+    "angular-timeline": "^1.7.0",
     "angularfire2": "^5.0.1",
     "core-js": "^2.5.4",
     "firebase": "^5.5.0",

@@ -27,7 +27,7 @@ export class AddEventComponent implements OnInit {
       else
         this.eventService.updateEvent(this.eventService.form.value);
       this.showSuccessMessage = true;
-      setTimeout(() => this.showSuccessMessage = false, 30000);
+      setTimeout(() => this.showSuccessMessage = false, 3000);
       this.submitted = false;
       this.eventService.form.reset();
     }

@@ -1,7 +1,19 @@
 <div class="container-fluid">
-  <ng-container *ngFor = "let event of eventArray">
+        <form class="form-inline" autocomplete="off" >
+            <select class="form-control" name="filterInput" placeholder="Filter" #filterInput="ngModel" [(ngModel)]="filterText" style="width:100px;">
+                <option value="">--All--</option>
+                <ng-container *ngFor = "let event of eventArray ">
+                <option value="{{event.date}}">{{event.date}}</option>
+                </ng-container>
+            </select>
+            <!-- SEARCH USING TWO WAY DATA BINDING -->
+            <input class="form-control" name="searchInput" placeholder="Search" #searchInput="ngModel" [(ngModel)]="searchText">
+            <!-- CLEAR VALUE OF searchText oN cLICK EVENT -->
+            <button class="btn btn-outline-light" (click)="searchText=''">X</button>
+        </form>
+  <ng-container *ngFor = "let event of eventArray ">
     <br>
-    <div style="border: 1px solid;padding: 10px">
+    <div id="{{ event.date }}/{{ event.name}}" style="border: 1px solid;padding: 10px" *ngIf="filterCondition(event) && filterDate(event)">
       <h5>{{ event.name }}&emsp;|&emsp;{{ event.date }}</h5>
       <hr>
       <div>
@@ -13,7 +25,8 @@
       </div>
     </div>
   </ng-container>
-</div>
+
 <div class="alert alert-danger" *ngIf="showDeletedMessage">
     Deleted successfully.
   </div>
+</div>

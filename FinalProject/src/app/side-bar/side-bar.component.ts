@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EventService } from '../shared/event.service';
 
 @Component({
   selector: 'app-side-bar',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private eventService: EventService) { }
+
+  eventArray = [];
 
   ngOnInit() {
+    this.eventService.getEvents().subscribe(
+      list => {
+        this.eventArray = list.map(item => {
+          return {
+            $key: item.key,
+            ...item.payload.val()
+          };
+        });
+      });
   }
 
 }

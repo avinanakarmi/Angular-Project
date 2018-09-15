@@ -1,0 +1,9 @@
+.form-control {
+    margin-left: 20px !important;
+}
+
+.form-inline {
+    position: fixed;
+    top: 10px;
+    right: 50px;
+}
