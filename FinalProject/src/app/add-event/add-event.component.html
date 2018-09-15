@@ -1,0 +1,29 @@
+<div class="row">
+  <form [formGroup]="this.eventService.form" (ngSubmit)="onSubmit()">
+    <input type="hidden" formControlName="$key">
+    <div class="form-group">
+      <label>Release Year:</label>
+      <input formControlName="date" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.date.errors}">
+      <div class="invalid-feedback" *ngIf="submitted && formControls.date.errors">
+        This field is required.</div>
+    </div>
+    <div class="form-group">
+      <label>Movie Title:</label>
+      <input formControlName="name" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.name.errors}">
+      <div class="invalid-feedback" *ngIf="submitted && formControls.name.errors">
+        This field is required.</div>
+    </div>
+    <div class="form-group">
+      <label>Description:</label>
+      <input formControlName="description" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.description.errors}">
+      <div class="invalid-feedback" *ngIf="submitted && formControls.description.errors">
+        This field is required.</div>
+    </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary" value="Add">
+        </div>
+      </form>
+      <div class="alert alert-info"  *ngIf="showSuccessMessage">
+        Added successfully.
+      </div>
+  </div>

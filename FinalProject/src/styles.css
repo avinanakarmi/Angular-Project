@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+body{
+    color: whitesmoke;
+}
+
+.background {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: inherit;
+    opacity: 0.9;
+}
+
+.nav-bar {
+    padding: 0px;
+}
